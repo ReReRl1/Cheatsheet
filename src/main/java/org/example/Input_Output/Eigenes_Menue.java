@@ -20,7 +20,7 @@ public class Eigenes_Menue {
 
         userEingabe.close();  // Close the scanner to prevent resource leaks
     }
-
+//
     public static String auswahlG(Scanner scanner) {
         String geschlecht = "";
         System.out.println("Bitte geben Sie ihr Geschlecht an");
