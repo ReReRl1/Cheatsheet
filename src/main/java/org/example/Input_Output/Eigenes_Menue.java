@@ -10,7 +10,7 @@ public class Eigenes_Menue {
         System.out.println("Wie lautet ihr Name?");
         String name = userEingabe.nextLine();  // Use Scanner for input
 
-        String geschlecht = auswahlG(userEingabe);  // Get gender from method
+        String geschlecht = auswahlG(userEingabe);
 
         System.out.println("Hallo " + geschlecht + name);
 

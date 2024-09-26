@@ -9,9 +9,9 @@ public class Glueckspiel {
         Scanner userEingabe = new Scanner(System.in);
 
         System.out.println("Wie lautet ihr Name?");
-        String name = userEingabe.nextLine();  // Use Scanner for input
+        String name = userEingabe.nextLine();
 
-        String geschlecht = auswahlG(userEingabe);  // Get gender from method
+        String geschlecht = auswahlG(userEingabe);
 
 
 
@@ -26,7 +26,7 @@ public class Glueckspiel {
 
             System.out.println("Sehr geehrte " + geschlecht + name + "!");
         }
-        userEingabe.close();  // Close the scanner to prevent resource leaks
+        userEingabe.close();
     }
     //
     public static String auswahlG(Scanner scanner) {
@@ -49,7 +49,7 @@ public class Glueckspiel {
                 System.out.println("Keine valide Eingabe");
                 break;
         }
-        return geschlecht;  // Return the gender
+        return geschlecht;
     }
 public int random() {
     int gluckZahl;
