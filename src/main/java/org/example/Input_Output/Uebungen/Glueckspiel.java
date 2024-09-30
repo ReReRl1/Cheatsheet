@@ -4,57 +4,66 @@ import java.util.Objects;
 import java.util.Scanner;
 //Schreibt ein Programm welches mit einer Wahrscheinlichkeit von 42% "Gewonnen!" und ansonsten "Verloren!" ausgibt.
 public class Glueckspiel {
+    public static int ein1;
+    public static boolean l = true;
+    public static boolean k = true;
+    public static int ein2;
+
 
     public static void main(String[] args) {
         Scanner userEingabe = new Scanner(System.in);
 
-        System.out.println("Wie lautet ihr Name?");
-        String name = userEingabe.nextLine();
-
-        String geschlecht = auswahlG(userEingabe);
-
+        System.out.println("Willkommen zum Glückspiel 2024!");
+        while (l) {
+        System.out.println("Spieler 1: Geben Sie einen zufälligen Wert zwischen 1 - 100 ein!");
 
 
-        System.out.println("Gib mir eine Zahl");
-        int zahl = userEingabe.nextInt();
-        if (zahl < 18)
-            System.out.println("Hallo " + name + "!");
-        else if (zahl > 18 && zahl < 110) {
-            if (Objects.equals(geschlecht, "Herr"))
-            System.out.println("Sehr geehrter " + geschlecht + name + "!");
-        } else  {
+            ein1 = userEingabe.nextInt();
 
-            System.out.println("Sehr geehrte " + geschlecht + name + "!");
+            if (ein1 > 100) {
+                System.out.println("Keine Valide Eingabe");
+            } else if (ein1 < 1) {
+                System.out.println("Keine Valide Eingabe");
+            }   else {
+                l = false;
+            }
         }
-        userEingabe.close();
-    }
-    //
-    public static String auswahlG(Scanner scanner) {
-        String geschlecht = "";
-        System.out.println("Bitte geben Sie ihr Geschlecht an");
-        System.out.println("M | W | D");
-        String auswahl = scanner.next();
+        while (k) {
+            System.out.println("Spieler 2: Geben Sie einen zufälligen Wert zwischen 1 - 100 ein!");
 
-        switch (auswahl) {
-            case "M":
-                geschlecht = "Herr ";
-                break;
-            case "W":
-                geschlecht = "Frau ";
-                break;
-            case "D":
-                geschlecht = "Divers ";
-                break;
-            default:
-                System.out.println("Keine valide Eingabe");
-                break;
+
+            ein2 = userEingabe.nextInt();
+
+            if (ein2 > 100) {
+                System.out.println("Keine Valide Eingabe");
+            } else if (ein2 < 1) {
+                System.out.println("Keine Valide Eingabe");
+            }   else {
+                k = false;
+            }
         }
-        return geschlecht;
+
+        int diff1 = Math.abs(random() - ein1);
+        int diff2 = Math.abs(random() - ein2);
+
+        System.out.println("Die zufallszahl lautet: " + random());
+
+        if (diff1 < diff2) {
+            System.out.println("Spieler 1 hat gewonnen!");
+        } else {
+            System.out.println("Spieler 2 hat gewonnen!");
+        }
+
+
+
+
     }
-public int random() {
+
+public static int random() {
     int gluckZahl;
 
-    gluckZahl = (int) Math.random() * 100;
+    gluckZahl =  (int)(Math.random() * 100) + 10;
+
     return gluckZahl;
 }
 }

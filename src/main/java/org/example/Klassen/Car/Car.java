@@ -8,18 +8,18 @@ public class Car {
     private String color;
     private double price;
     private double km;
-    private boolean status;
-
+    private boolean engineStatus;
+    private int fuel;
     //Konstruktor
-    public Car(String brand, String model, String color, double price, double km, boolean status) {
+    public Car(String brand, String model, String color, double price, double km, boolean status, int fuel) {
 
         this.brand = brand;
         this.model = model;
         this.color = color;
         this.price = price;
         this.km = km;
-        this.status = false;
-
+        this.engineStatus = false;
+        this.fuel = fuel;
     }
 
     public Car(String brand, String model, String color) {      //Anhand der Parameter welcher Konstruktor für das
@@ -33,15 +33,17 @@ public class Car {
     //Methoden
     public void carStart() {
 
-        status = true;
+        engineStatus = true;
         System.out.println("Auto gestartet");
     }
 
 
     public void drive() {
-        if (status) {
+
+        if (engineStatus && fuel >= 10) {
             System.out.println("auto fährt");
             km += 100;
+            fuel -= 10;
         } else {
             System.out.println("Auto vorher bitte starten");
         }
@@ -49,11 +51,19 @@ public class Car {
     }
     public void carOff() {
 
-        status = false;
+        engineStatus = false;
         System.out.println("Auto aus");
     }
 
         //getter setter
+   public int getFuel() {
+
+        return fuel;
+   }
+   public void setFuel() {
+
+        this.fuel = fuel;
+   }
     public String getModel() {
 
         return model;
