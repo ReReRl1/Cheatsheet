@@ -8,6 +8,7 @@ public class primzahlen {
     public static int p;
     public static int zahl;
     public static boolean k = false;
+
     public static void main(String[] args) {
 
         Scanner userEingabe = new Scanner(System.in);
@@ -18,35 +19,31 @@ public class primzahlen {
         int ein = userEingabe.nextInt();
 
 
-
-
-
         for (int i = 2; i <= ein; i++) {
 
-            zahl = ein / i;
-            p = ein % i;
-
-            while (p == 1) {
-
-                while (k) {
+            boolean isPrimzahl = true;
 
 
+            for (int j = 2; j < i && isPrimzahl; j++) {
 
+
+                if ((i % j) == 0) {
+
+
+                    isPrimzahl = false;
                 }
 
-                if (p == 0) {
+            }
+            if (ein == i) {
 
-                    System.out.println(zahl + " ist keine Primzahl" + "weil kann durch " + i + " geteilt werden");
 
+                if (isPrimzahl) {
+                    System.out.println(i + " ist eine Primzahl!");
+                } else {
+                    System.out.println(i + " ist keine Primzahl!");
                 }
             }
-
-
-
-
         }
 
-
     }
-
 }
